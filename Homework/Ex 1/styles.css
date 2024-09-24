@@ -3,13 +3,31 @@
   padding: 0;
   margin: 0;
 }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content-container {
+  display: flex;
+  width: 100%;
+}
+
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* 3 items per row on large screens */
   gap: 20px;
-  width: 100%;
+  width: 75%; /* Adjust width to leave space for the cart */
   padding: 20px;
 }
+
+.cart-container {
+  width: 25%; /* Set width for cart section */
+  padding: 20px;
+  border-left: 1px solid #ddd;
+  background-color: #f8f8f8;
+}
+
 .grid-item {
   background-color: #f8f8f8;
   padding: 15px;
@@ -23,10 +41,20 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   align-items: center;
+  justify-content: space-between;
   gap: 20px;
 }
 
+.iphone-img {
+  width: 100%;
+  object-fit: cover;
+}
+.samsung-img {
+  width: 100%;
+  object-fit: cover;
+}
 img {
   width: 100%;
   object-fit: cover;
@@ -42,30 +70,30 @@ img {
   display: flex;
   flex-direction: row;
   gap: 20px;
-  font-family: Arial, Helvetica, sans-serif;
   justify-content: flex-start;
+  align-items: center;
 }
 
 .offer {
   background-color: rgb(202, 38, 38);
-  padding: 10px;
+  padding: 5px;
   border-radius: 4px;
   color: white;
   text-align: center;
 }
 
-.paragraph {
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .deal {
   font-weight: bold;
-  display: flex;
   color: rgb(202, 38, 38);
   align-items: center;
-  text-align: center;
 }
+
+.paragraph {
+  font-size: 20px;
+}
+ .paragraph h2 {
+  margin: 10px;
+ }
 .input {
   width: 40%;
   padding: 5px;
@@ -73,10 +101,12 @@ img {
   border: none;
   border-radius: 8px;
 }
+
 .add-to-cart {
   display: flex;
   justify-content: space-between;
 }
+
 .button-cart {
   padding: 5px 10px;
   border: none;
@@ -85,5 +115,33 @@ img {
   cursor: pointer;
 }
 
+/* Cart container styles */
+.cart-container h2 {
+  margin-bottom: 20px;
+}
 
+.cart-items p {
+  font-size: 18px;
+  color: #333;
+}
 
+/* Media Queries for Responsive Grid */
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row for medium screens */
+    width: 100%; /* Cart may stack below the grid on medium screens */
+  }
+  
+  .cart-container {
+    width: 100%; /* Full width for cart on smaller screens */
+    border-left: none;
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr); /* 1 item per row for small screens */
+    width: 100%;
+  }
+}
