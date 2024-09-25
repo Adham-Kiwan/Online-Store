@@ -21,7 +21,7 @@ body {
   padding: 20px;
 }
 
-.cart-container {
+#cart-container {
   width: 25%; /* Set width for cart section */
   padding: 20px;
   border-left: 1px solid #ddd;
@@ -116,15 +116,38 @@ img {
 }
 
 /* Cart container styles */
-.cart-container h2 {
+#cart-container h2 {
   margin-bottom: 20px;
 }
 
-.cart-items p {
+#cart-items p {
   font-size: 18px;
   color: #333;
+
+}
+#cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#item-1,#item-2,#item-3,#item-4,#item-5,#item-6 {
+  background-color: #ff9933;
+  width: 70%;
+  height: 85px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
+
+#item-description {
+  font-size: 14px;
+  color: #ffffff;
+}
+.item-currency, #item-price-1,#item-price-2,#item-price-3, #item-price-4,#item-price-5,#item-price-6 {
+  display: inline-block;
+  margin: 0;
+}
 /* Media Queries for Responsive Grid */
 @media (max-width: 1024px) {
   .grid-container {
@@ -132,7 +155,7 @@ img {
     width: 100%; /* Cart may stack below the grid on medium screens */
   }
   
-  .cart-container {
+  #cart-container {
     width: 100%; /* Full width for cart on smaller screens */
     border-left: none;
     padding-top: 20px;
